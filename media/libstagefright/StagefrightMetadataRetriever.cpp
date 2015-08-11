@@ -157,6 +157,9 @@ static VideoFrame *extractVideoFrame(
 
     // TODO: Use Flexible color instead
     videoFormat->setInt32("color-format", OMX_COLOR_FormatYUV420Planar);
+    
+    //Add key to indicate thumbnail mode
+    videoFormat->setInt32("thumbnail-mode", 1);
 
     // For the thumbnail extraction case, try to allocate single buffer in both
     // input and output ports, if seeking to a sync frame. NOTE: This request may
@@ -521,7 +524,7 @@ VideoFrame *StagefrightMetadataRetriever::getFrameAtTime(
     MediaCodecList::findMatchingCodecs(
             mime,
             false, /* encoder */
-            MediaCodecList::kPreferSoftwareCodecs,
+            0 /* MediaCodecList::kPreferSoftwareCodecs */,
             &matchingCodecs);
 
     for (size_t i = 0; i < matchingCodecs.size(); ++i) {
