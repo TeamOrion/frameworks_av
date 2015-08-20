@@ -61,7 +61,8 @@ protected:
     virtual ~AudioSource();
 
     enum {
-        kMaxBufferSize = 2048,
+        //calculated for max duration 80 msec with 48K sampling rate.
+        kMaxBufferSize = 30720,
 
         // After the initial mute, we raise the volume linearly
         // over kAutoRampDurationUs.
