@@ -5525,9 +5525,9 @@ void ACodec::sendFormatChange() {
     }
 
     sp<AMessage> notify = mNotify->dup();
+    getVQZIPInfo(mOutputFormat);
     notify->setInt32("what", kWhatOutputFormatChanged);
     notify->setMessage("format", mOutputFormat);
-    getVQZIPInfo(notify);
 
     notify->post();
 
