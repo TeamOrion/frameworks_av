@@ -391,7 +391,6 @@ status_t SampleTable::setTimeToSampleParams(
         // 2) mTimeToSampleCount is the number of entries of the time-to-sample
         //    table.
         // 3) We hope that the table size does not exceed UINT32_MAX.
-
         ALOGE("Time-to-sample table size too large.");
         return ERROR_OUT_OF_RANGE;
     }
