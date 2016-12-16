@@ -1409,10 +1409,6 @@ status_t AudioTrack::createTrack_l()
             tid = mAudioTrackThread->getTid();
         }
     }
-    
-    if ((mFlags & AUDIO_OUTPUT_FLAG_DIRECT) || mTrackOffloaded) {
-          trackFlags |= IAudioFlinger::TRACK_DIRECT;
-      }
 
     size_t temp = frameCount;   // temp may be replaced by a revised value of frameCount,
                                 // but we will still need the original value also
